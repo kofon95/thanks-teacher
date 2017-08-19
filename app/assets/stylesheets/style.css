@@ -1,0 +1,309 @@
+@font-face {
+	font-family: Myriad Pro;
+	src: url(/fonts/MyriadPro-Regular.otf);
+}
+@font-face {
+	font-family: MProCond;
+	src: url(/fonts/MyriadPro-Cond.otf);
+}
+body {
+    margin: 0;
+    background: rgba(0, 0, 0, 0.44);
+    font-family: Myriad Pro;
+}
+a {
+    text-decoration: none;
+}
+
+.right-head-text {
+    width: 60%;
+    float: right;
+}
+.top-head-text {
+    font-size: 22px;
+    color: white;
+    text-align: right;
+    font-family: MProCond;
+    margin-bottom: 20px;
+}
+.bottom-head-text {
+    text-align: center;
+    background: white;
+    font-weight: bold;
+    padding: 15px 0;
+}
+header {
+    display: table;
+    position: relative;
+    z-index: 2;
+    width: 1200px;
+    margin: 50px auto 0;
+}
+.button-thank-you {
+    font-family: MProCond;
+    padding: 15px 45px 14px 45px;
+    font-size: 18px;
+    margin: 0 auto;
+    display: table;
+    background-color: #3f92d2;
+    color: white;
+    border-radius: 2px;
+    transition: background-color .3s;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    z-index: 3;
+}
+.button-thank-you:hover {
+    background-color: #3270a0;
+}
+.title-thank-you {
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    font-family: MProCond;
+    margin: 130px 0 30px 0;
+    position: relative;
+    z-index: 3;
+}
+.block-stories {
+    position: relative;
+    z-index: 3;
+    width: 1200px;
+    margin: 0 auto;
+}
+h2.title-block-stories {
+    color: white;
+    text-align: center;
+    font-size: 36px;
+    font-family: MProCond;
+    margin-top: 90px;
+    font-weight: 400;
+}
+.column-items-block-stories {
+    width: 50%;
+    float: left;
+}
+.item-block-stories {
+    background-color: white;
+    margin: 0 10px 20px 10px;
+    padding: 25px 25px 35px 25px;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
+}
+.inp-block-stories {
+    padding: 20px;
+    outline: none;
+    border: 0;
+    border-radius: 2px;
+    width: 100%;
+    font-size: 14px;
+    font-family: verdana;
+    line-height: 1.6em;
+}
+.counter {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 62px;
+    text-align: center;
+    background: white;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 2px;
+}
+.text-counter>span {
+    font-weight: 600;
+}
+.text-counter {
+    margin: 21.5px;
+}
+.filtration-block-stories {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.from-whom-block-stories {
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-style: italic;
+}
+.teacher-block-stories {
+    margin-right: 10px;
+}
+.school-block-stories {
+    color: #b3b3b3;
+}
+.to-whom-block-stories {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.text-block-stories {
+    font-size: 14px;
+    font-family: verdana;
+    line-height: 1.6em;
+}
+.button-yet {
+    width: 100%;
+    display: table;
+}
+.button-yet>div {
+    display: table;
+    margin: 10px auto;
+    padding: 10px 50px;
+    color: #3f92d2;
+    border: 1px solid #3f92d2;
+    user-select: none;
+    cursor: pointer;
+    transition: background-color .3s, color .3s;
+}
+
+.button-yet>div:hover {
+    background-color: #3f92d2;
+    color: white;
+}
+
+footer {
+    width: 100%;
+    height: 250px;
+    background-color: rgba(0, 0, 0, 0.39);
+    position: relative;
+    z-index: 3;
+    margin-top: 40px;
+}
+
+.min-obr {
+    height: 100px;
+    margin: 75px 50px;
+    display: table;
+    float: left;
+}
+.min-obr>img {
+    height: 100%;
+}
+
+.references {
+    margin: 0 auto;
+    display: table;
+}
+
+content {
+    display: table;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.submit-review-to-teacher {
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    top: 100%;
+    left: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.49);
+    transition: top .3s;
+}
+.submit-review-to-teacher.open-submit-review-to-teacher {
+    top: 0;
+}
+.panel-submit-review-to-teacher {
+    width: 700px;
+    min-height: 530px;
+    background-color: white;
+    margin: 9% auto;
+    position: relative;
+    border-radius: 2px;
+}
+.name-teacher, .name-school, .name-peaple {
+    padding: 10px 0;
+    outline: none;
+    width: 90%;
+    margin: 40px 5% 0;
+    border: 1px solid #b1b1b1;
+    border-width: 0 0 2px 0;
+    transition: border-color .3s;
+}
+.name-teacher:focus, .name-school:focus, .name-peaple:focus, .history-teacher:focus {
+    border-color: #3f92d2;
+}
+.history-teacher {
+    padding: 0 0 10px 10px;
+    outline: none;
+    width: 90%;
+    margin: 40px 5% 0;
+    border: 1px solid #b1b1b1;
+    border-width: 0 0 2px 2px;
+    transition: border-color .3s;
+    resize: vertical;
+}
+
+
+
+.button-close-panel {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: 2px solid #3c3c3c;
+    border-radius: 1px;
+    user-select: none;
+    width: 9px;
+    height: 9px;
+    padding: 7px;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+.button-close-panel>div {
+    background-image: url(/assets/close.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    transition: background-color .3s;
+}
+.button-close-panel:hover {
+    background: #3c3c3c;
+}
+.button-close-panel:hover>div {
+    background-image: url(../close-white.svg);
+}
+
+.button-to-send {
+    padding: 9px 30px;
+    border: 0;
+    font-size: 20px;
+    box-shadow: 0 1px 1px 0px rgba(0,0,0,0.5);
+    border-radius: 1px;
+    float: right;
+    transition: background-color .3s;
+    cursor: pointer;
+    font-family: MProCond;
+    user-select: none;
+    background-color: #3f92d2;
+    color: white;
+    margin-top: 5px;
+    /*position: absolute;*/
+    bottom: 20px;
+    right: 20px;
+}
+.button-to-send:hover {
+    background-color: #3270a0;
+}
+.slider {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    transition: top .6s;
+}
+.slider>img {
+	width: 100%;
+    filter: blur(7px);
+}
+
+
+.panel-submit-review-to-teacher>input, .history-teacher {
+    font-size: 14px;
+    font-family: verdana;
+    line-height: 1.6em;
+}

@@ -1,0 +1,209 @@
+@font-face {
+	font-family: Myriad Pro;
+	src: url(/fonts/MyriadPro-Regular.otf);
+}
+@font-face {
+	font-family: MProCond;
+	src: url(/fonts/MyriadPro-Cond.otf);
+}
+body {
+    background-color: #eeeeee;
+    font-family: Myriad Pro;
+    width: 700px;
+    margin: 0 auto;
+}
+content {
+    display: table;
+}
+.item-post {
+    background-color: white;
+    margin: 0 0 20px 0;
+    box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
+    border-radius: 2px;
+    display: table;
+}
+.name-teacher, .name-school, .name-peaple {
+    padding: 10px 0;
+    outline: none;
+    width: 90%;
+    margin: 40px 5% 0;
+    border: 1px solid #b1b1b1;
+    border-width: 0 0 2px 0;
+    transition: border-color .3s;
+}
+.history-teacher {
+    padding: 0 0 10px 10px;
+    outline: none;
+    width: 90%;
+    margin: 40px 5% 0;
+    border: 1px solid #b1b1b1;
+    border-width: 0 0 2px 2px;
+    transition: border-color .3s;
+    resize: vertical;
+}
+.button-to-send, .botton-del, .button-exit {
+    padding: 9px 30px;
+    border: 0;
+    font-size: 20px;
+    box-shadow: 0 1px 1px 0px rgba(0,0,0,0.5);
+    border-radius: 2px;
+    float: right;
+    transition: background-color .3s;
+    cursor: pointer;
+    font-family: MProCond;
+    user-select: none;
+    background-color: #3f92d2;
+    color: white;
+    margin: 20px 30px 20px 0;
+}
+.button-to-send:hover {
+    background-color: #3270a0;
+}
+.botton-del:hover {
+    background-color: #a03232;
+}
+.botton-del {
+    background-color: #d23f3f;
+    margin-right: 20px;
+}
+
+.button-exit {
+	padding: 10px 20px;
+    font-size: 14px;
+    text-decoration: none;
+    float: right;
+    margin: 14.5px 0;
+}
+header {
+    display: table;
+    width: 100%;
+    padding: 30px 0;
+}
+.logo {
+    float: left;
+    width: 130px;
+}
+.menu {
+    float: left;
+    list-style-type: none;
+    margin: 23px 0;
+}
+.logo>img {
+    width: 100%;
+}
+.menu>li {
+    float: left;
+}
+.menu>li>a {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #4c4c4c;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color .3s;
+}
+.activ {
+    background-color: white;
+    box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
+    border-radius: 2px;
+}
+
+
+.filtration-block-stories {
+    position: relative;
+    margin-bottom: 20px;
+}
+.inp-search {
+    padding: 20px;
+    outline: none;
+    border: 0;
+    width: 100%;
+    box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
+    border-radius: 2px;
+    font-size: 14px;
+    font-family: verdana;
+    line-height: 1.6em;
+}
+.counter {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 62px;
+    text-align: center;
+    background: white;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 2px;
+}
+.text-counter {
+    margin: 22.5px;
+    font-size: 14px;
+}
+.button-yet {
+    width: 100%;
+    display: table;
+}
+.button-yet>div {
+    display: table;
+    margin: 10px auto;
+    padding: 10px 50px;
+    color: #3f92d2;
+    border: 1px solid #3f92d2;
+    user-select: none;
+    cursor: pointer;
+    transition: background-color .3s, color .3s;
+}
+.button-yet>div:hover {
+    background-color: #3f92d2;
+    color: white;
+}
+.references {
+    margin: 0 auto;
+    display: table;
+}
+.min-obr {
+    height: 100px;
+    margin: 45px 50px;
+    display: table;
+    float: left;
+    user-select: none;
+}
+.min-obr>img {
+    height: 100%;
+}
+
+footer {
+    width: 100%;
+    height: 250px;
+    background-color: rgba(0, 0, 0, 0.39);
+    position: relative;
+    z-index: 3;
+    margin-top: 40px;
+}
+.rsstudio {
+    color: white;
+}
+.rsstudio>a {
+    color: #386c95;
+    border: 1px solid #386c95;
+    border-width: 0 0 1px 0;
+    text-decoration: none;
+}
+.rsstudio>span {
+    user-select: none;
+    cursor: default;
+}
+
+.item-post>input, .history-teacher {
+    font-size: 14px;
+    font-family: verdana;
+    line-height: 1.6em;
+}
+.menu>li>a:hover {
+    color: #000000;
+}
+
+
+.name-teacher:focus, .name-school:focus, .name-peaple:focus, .history-teacher:focus {
+    border-color: #3f92d2;
+}

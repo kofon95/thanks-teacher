@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+big_thanks:
+  visitor_name: Jhon Smith
+  teacher_name: Olga
+  school_name: School 11
+  body: You helped me so much.... Thanks a lot!
+  published: true
+  created_at: 2017-08-10
+  updated_at: 2017-08-10
+
+small_thanks:
+  visitor_name: Pol
+  teacher_name: Natalya
+  school_name: School 22
+  body: You're my lovely teacher
+  # published: false # by default
+  created_at: 2017-08-10
+  updated_at: 2017-08-10
