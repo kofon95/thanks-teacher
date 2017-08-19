@@ -1,6 +1,15 @@
 require 'test_helper'
 
 class ThanksTest < ActiveSupport::TestCase
+  test "respond_to attributes" do
+    model = Thanks.new
+    assert_respond_to model, :visitor_name
+    assert_respond_to model, :teacher_name
+    assert_respond_to model, :school_name
+    assert_respond_to model, :body
+    assert_respond_to model, :published
+  end
+
   test 'create new "thanks"' do
     count = Thanks.count
     Thanks.create!(

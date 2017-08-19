@@ -1,0 +1,9 @@
+<%if flash[:notice].present?%>
+  <%=content_tag :div, flash[:notice]%>
+<%end%>
+
+<%=form_for @admin, url: signin_path, method: :post do |f|%>
+  <%=f.text_field :login%>
+  <%=f.password_field :password%>
+  <%=f.submit 'Log in', name: nil%>
+<%end%>

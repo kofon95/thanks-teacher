@@ -1,0 +1,65 @@
+<%provide :head do%>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+<%end%>
+
+
+<header>
+  <a href="#" class="logo"><img src="/assets/logo4.png" /></a>
+  
+  <ul class="menu">
+    <li><a href="#"><span>Опубликованные </span><span>1120</span></a></li>
+    <li><a href="#" class="activ"><span>На расмотрение </span><span>10</span></a></li>
+  </ul>
+
+    <button class="button-exit" name="exit">Выход</button>
+</header>
+
+
+<content ng-controller="thanksCtrl">
+  <input type="hidden" id="auth_token" value="<%=form_authenticity_token%>">
+  <input type="hidden" id="total_thanks" value="<%=@thanks_count%>">
+  
+  <div class="filtration-block-stories">
+    <input placeholder="Введите ФИО учителя или название учебного заведения (например: СОШ №7 г. Кизилюрт)" class="inp-search" type="text" name="search" id="inp-search">
+      
+    <div class="counter"><div class="text-counter">{{thanks.length}} записей из {{totalThanks}}</div></div>
+  </div>
+  
+  <div class="items-posts">
+    <div class="item-post" ng-repeat="thank in thanks">
+    
+      <input placeholder="ФИО отправителя" class="name-peaple" type="text" value="{{thank.visitor_name}}">
+      <input placeholder="ФИО учителя или учителей" class="name-teacher" type="text" value="{{thank.teacher_name}}">
+      <input placeholder="Учебное заведение (например: СОШ №7 г. Кизилюрт)" class="name-school" type="text" value="{{thank.school_name}}">
+      
+      <textarea placeholder="История" cols="40" rows="3" class="history-teacher" data="elastic">{{thank.body}}</textarea>
+        
+      <button class="button-to-send" >Опубликовать</button>
+      <button class="botton-del" ng-click="removeThank($index)" >Удалить</button>
+    </div>
+<%#@thanks.each do |thank|%>
+<!--     <div class="item-post">
+    
+      <input placeholder="ФИО отправителя" class="name-peaple" type="text" value="<%#=thank.visitor_name%>">
+      <input placeholder="ФИО учителя или учителей" class="name-teacher" type="text" value="<%#=thank.teacher_name%>">
+      <input placeholder="Учебное заведение (например: СОШ №7 г. Кизилюрт)" class="name-school" type="text" value="<%#=thank.school_name%>">
+      
+      <textarea placeholder="История" cols="40" rows="3" class="history-teacher" data="elastic"><%#=thank.body%></textarea>
+        
+      <button class="button-to-send" >Опубликовать</button>
+      <button class="botton-del" data-thanks-id="<%#=thank.id%>" >Удалить</button>
+    </div> -->
+<%#end%>
+  </div>
+  
+  <div class="button-yet"><button ng-click="loadThanks(10)">ЗАГРУЗИТЬ ЕЩЕ</button></div>
+
+</content>
+
+<footer>
+  <div class="references">
+    <a href="http://www.dagminobr.ru/" class="min-obr" target="_blank"><img src="/assets/rsstudio.png" /></a>
+    <div class="rsstudio"><span>По всем вопросам обращайтесь на почту </span><a href="mailto:live.books@mail.ru">live.books@mail.ru</a></div>
+    <div class="rsstudio"><span>или по номеру +7 918 730 10 05</span></div>
+  </div>
+</footer>

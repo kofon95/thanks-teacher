@@ -7,8 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 100.times do|i|
-  Thank.create! visitor_name: Faker::Name.name_with_middle,
+  Thanks.create! visitor_name: Faker::Name.name_with_middle,
                 teacher_name: Faker::Name.name_with_middle,
                 school_name: Faker::Educator.campus,
                 body: Faker::Lorem.paragraphs.join("\n")
 end
+
+Admin.create! login: 'admin', password: '123qwe'

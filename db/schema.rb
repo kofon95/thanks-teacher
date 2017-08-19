@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170819105915) do
+ActiveRecord::Schema.define(version: 20170819124422) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "login", limit: 50, null: false
+    t.string "password_digest", limit: 255, null: false
+    t.string "remember_token", limit: 50
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "thanks", force: :cascade do |t|
     t.string "visitor_name", limit: 100
