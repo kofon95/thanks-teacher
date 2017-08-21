@@ -15,8 +15,13 @@ module AdminsHelper
     if admin.nil? or remember_token != admin.remember_token
       sign_out
       p 'cookies delete login and remember_token'
+      return nil
     end
     @current_admin = admin
+  end
+
+  def signed_in?
+    current_admin.present?
   end
 
   def sign_out
@@ -24,7 +29,8 @@ module AdminsHelper
     cookies.delete :login
     cookies.delete :remember_token
     if login
-      login.update_column :remember_token, nil
+      admin = Admin.find_by_login(login)
+      admin.update_column :remember_token, nil if admin
     end
   end
 end

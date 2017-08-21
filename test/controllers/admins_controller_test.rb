@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class AdminsControllerTest < ActionDispatch::IntegrationTest
-  ADMIN_LOGIN = 'admin'
-  ADMIN_PASSWORD = '123qwe'
+  ADMIN_LOGIN = ENV['ADMIN_LOGIN']
+  ADMIN_PASSWORD = ENV['ADMIN_PASSWORD']
 
   test "visit signin page" do
     get signin_url

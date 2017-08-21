@@ -1,5 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 main_admin:
-  login: admin
-  password_digest: <%=BCrypt::Password.create '123qwe'%>
+  login: <%=ENV['ADMIN_LOGIN']%>
+  password_digest: <%=BCrypt::Password.create ENV['ADMIN_PASSWORD']%>

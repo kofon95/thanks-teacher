@@ -1,0 +1,32 @@
+// /thanks?q=...
+!function() {
+
+var html = "<%=j render partial: 'thanks/one', collection: @thanks, as: :thank%>";
+var thanksOffset = document.getElementById("thanks_offset");
+
+<%if params[:search]%>
+tmpContainer.innerHTML = html;
+document.getElementById("thanks_container_left_block").innerHTML = "";
+document.getElementById("thanks_container_right_block").innerHTML = "";
+moveThanks(0);
+thanksOffset.value = tmpContainer.children.length;
+if (html.length === 0)
+  alert("Ничего не нашлось")
+<%else%>
+var offset = tmpContainer.children.length;
+tmpContainer.innerHTML += html;
+moveThanks(offset);
+
+if (html.length === 0)
+  alert("Вы дошли до конца списка!");
+else
+  thanksOffset.value = tmpContainer.children.length;
+<%end%>
+}()
+
+
+/*
+
+[<%#=render partial: 'thanks/one', collection: @thanks, as: :thank%>]
+
+*/

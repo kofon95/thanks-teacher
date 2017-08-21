@@ -1,4 +1,5 @@
 <%#=render 'thanks/all'%>
+<%provide :head { stylesheet_link_tag 'home' }%>
 
 
 <div style="background-color: rgba(0, 0, 0, 0.45); position: fixed; z-index: 2; width: 100%; height: 100%; top: 0;"></div>
@@ -81,21 +82,59 @@
   <div class="button-thank-you">ПОБЛАГОДАРИТЬ</div>
   <div class="block-stories">
     <h2 class="title-block-stories">Истории, рассказанные участниками акции "Спасибо, учитель!"</h2>
-    
-    <div class="filtration-block-stories">
-      <input placeholder="Введите ФИО учителя или название учебного заведения (например: СОШ №7 г. Кизилюрт)" class="inp-block-stories" type="text" name="search" id="inp-block-stories">
+
+    <%=form_tag thanks_path, method: 'get', remote: true, data: {count: @thanks.count} do%>
+      <div class="filtration-block-stories">
+        <input id="thanks_count" type="hidden" name="count" value="5">
+        <input placeholder="Введите ФИО учителя или название учебного заведения (например: СОШ №7 г. Кизилюрт)" class="inp-block-stories" type="text" name="q" id="search_thanks">
+        <button id="do_search" name="search">Искать</button>
+        <div class="counter"><div class="text-counter"><span>Спасибо</span> уже сказали <%=@thanks_count%> человек</div></div>
+      </div>
       
-      <div class="counter"><div class="text-counter"><span>Спасибо</span> уже сказали <%=@thanks_count%> человек</div></div>
-    </div>
-    
-    <div class="items-block-stories">
-      
-      <%=render 'thanks/all'%>
-      
-      <div class="button-yet"><div>ЗАГРУЗИТЬ ЕЩЕ</div></div>
-    
-    </div>
-  
+      <div class="items-block-stories">
+        <!-- tmp container -->
+        <!-- dynamic style: visibility: hidden;position: absolute; -->
+        <div id="invisibility_thanks_container" >
+          <%=render partial: 'thanks/one', collection: @thanks, as: :thank %>
+        </div>
+        <div>
+          <div id="thanks_container_left_block" class="column-items-block-stories"></div>
+          <div id="thanks_container_right_block" class="column-items-block-stories"></div>
+        </div>
+<script>
+"use strict"
+
+var tmpContainer = document.getElementById("invisibility_thanks_container");
+tmpContainer.style.visibility = "hidden";
+tmpContainer.style.position = "absolute";
+
+function moveThanks(fromIndex) {
+  var leftBlock = document.getElementById("thanks_container_left_block");
+  var rightBlock = document.getElementById("thanks_container_right_block");
+
+  var tmpChildren = tmpContainer.children;
+
+  var leftHeight = leftBlock.offsetHeight;
+  var rightHeight = rightBlock.offsetHeight;
+  for (var i = fromIndex; i < tmpChildren.length; i++) {
+    var child = tmpChildren[i];
+    var post = child.cloneNode(true);
+    if (leftHeight <= rightHeight) {
+      leftBlock.append(post);
+      leftHeight += post.offsetHeight;
+    } else {
+      rightBlock.append(post);
+      rightHeight += post.offsetHeight;
+    }
+  }
+}
+moveThanks(0);
+</script>
+        <div class="button-yet">
+          <%=button_tag 'ЗАГРУЗИТЬ ЕЩЕ', name: 'offset', id: 'thanks_offset', value: @thanks.count%>
+        </div>
+      </div>
+    <%end%>
   
   
   </div>

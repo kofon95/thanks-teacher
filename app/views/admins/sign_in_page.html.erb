@@ -1,9 +1,14 @@
+<%provide :head { stylesheet_link_tag 'login' }%>
+
 <%if flash[:notice].present?%>
   <%=content_tag :div, flash[:notice]%>
 <%end%>
 
 <%=form_for @admin, url: signin_path, method: :post do |f|%>
-  <%=f.text_field :login%>
-  <%=f.password_field :password%>
-  <%=f.submit 'Log in', name: nil%>
+  <div class="panel-login content" style="margin-top: 100px">
+    <h2>Авторизуйтесь!</h2>
+      <%=f.text_field :login, class: "inp-login"%>
+      <%=f.password_field :password, class: "inp-login"%>
+      <%=f.button 'Log in', name: nil, class: "button-login"%>
+  </div>
 <%end%>

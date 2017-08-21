@@ -10,6 +10,103 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ * require_tree .
  *= require_self
  */
+
+
+
+@font-face {
+  font-family: Myriad Pro;
+  src: url(/fonts/MyriadPro-Regular.otf);
+}
+@font-face {
+  font-family: MProCond;
+  src: url(/fonts/MyriadPro-Cond.otf);
+}
+
+.counter {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 62px;
+    text-align: center;
+    background: white;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 2px;
+}
+
+.filtration-block-stories {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+
+.button-yet {
+    width: 100%;
+    display: table;
+}
+.button-yet>* {
+    display: table;
+    margin: 10px auto;
+    padding: 10px 50px;
+    color: #3f92d2;
+    border: 1px solid #3f92d2;
+    user-select: none;
+    cursor: pointer;
+    transition: background-color .3s, color .3s;
+    background: rgba(255, 0, 0, 0);
+    font: 14px Myriad Pro;
+}
+.button-yet>*:hover {
+    background-color: #3f92d2;
+    color: white;
+}
+.references {
+    margin: 0 auto;
+    display: table;
+}
+.min-obr {
+    height: 100px;
+    margin: 75px 50px;
+    display: table;
+    float: left;
+    user-select: none;
+}
+.min-obr>img {
+    height: 100%;
+}
+
+footer {
+    width: 100%;
+    height: 250px;
+    background-color: rgba(0, 0, 0, 0.39);
+    position: relative;
+    z-index: 3;
+    margin-top: 40px;
+}
+
+.name-teacher, .name-school, .name-peaple {
+    padding: 10px 0;
+    outline: none;
+    width: 90%;
+    margin: 40px 5% 0;
+    border: 1px solid #b1b1b1;
+    border-width: 0 0 2px 0;
+    transition: border-color .3s;
+}
+.history-teacher {
+    padding: 0 0 10px 10px;
+    outline: none;
+    width: 90%;
+    margin: 40px 5% 0;
+    border: 1px solid #b1b1b1;
+    border-width: 0 0 2px 2px;
+    transition: border-color .3s;
+    resize: vertical;
+}
+
+.name-teacher:focus, .name-school:focus, .name-peaple:focus, .history-teacher:focus {
+    border-color: #3f92d2;
+}

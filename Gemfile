@@ -53,3 +53,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker'
 gem 'jquery-rails', '~> 4.2'
 gem 'bcrypt'
+gem 'dotenv-rails'

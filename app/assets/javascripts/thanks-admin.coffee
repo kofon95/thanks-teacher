@@ -1,3 +1,9 @@
+permitObject = (obj, keys)->
+  result = {}
+  for key in keys
+    result[key] = obj[key]
+  result
+
 angular.module("main", []).controller("thanksCtrl", ($scope, $http, $httpParamSerializer)->
   authToken = document.getElementById("auth_token").value
   authTokenData = $httpParamSerializer({authenticity_token: authToken})
@@ -5,28 +11,51 @@ angular.module("main", []).controller("thanksCtrl", ($scope, $http, $httpParamSe
 
   $scope.totalThanks = document.getElementById("total_thanks").value
 
-  $scope.thanks = []
+  thanks = []
+  $scope.thanks = thanks
 
   $scope.loadThanks = (count) ->
-    console.log(count + " load")
-    $http.get("/thanks.json?offset=#{$scope.thanks.length}&count=#{count}")
+    $http.get("/thanks.json?offset=#{thanks.length}&count=#{count}&show=all")
       .then (resp)->
-        console.log(resp)
-        $scope.thanks = $scope.thanks.concat resp.data
-        console.log($scope.thanks)
+        $scope.thanks = thanks = thanks.concat resp.data
 
 
   $scope.loadThanks(5)
 
+
+
+
   $scope.removeThank = (index) ->
-    return unless confirm('Вы уверены, что хотите удалить благодарение?')
+    return if thanks[index].isLoading or !confirm('Вы уверены, что хотите удалить благодарение?')
     $http({
-      url: "/thanks/#{$scope.thanks[index].id}"
+      url: "/thanks/#{thanks[index].id}"
       method: 'DELETE'
       data: authTokenData
       headers: deleteHeaders
     })
     .then (resp) ->
-      $scope.thanks.splice(index, 1)
+      thanks.splice(index, 1)
       $scope.totalThanks--
+
+
+  # returns promise
+  $scope.saveThank = (thank) ->
+    return null if thank.isLoading
+    keys = ['visitor_name', 'teacher_name', 'school_name', 'body', 'published']
+    thank.isLoading = true
+    $http.patch("/thanks/#{thank.id}", {
+      authenticity_token: authToken
+      thanks: permitObject thank, keys
+    }
+      {transformResponse: -> null}
+    )
+    .catch (e)-> alert "#{e.status}: #{e.statusText}"
+    .finally -> thank.isLoading = false
+
+
+
+  $scope.saveThankWithPublish = (index, published) ->
+    thanks[index].published = published
+    if $scope.saveThank(thanks[index])?
+      thanks[index].published = published
 )

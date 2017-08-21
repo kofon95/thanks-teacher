@@ -13,4 +13,4 @@
                 body: Faker::Lorem.paragraphs.join("\n")
 end
 
-Admin.create! login: 'admin', password: '123qwe'
+Admin.create! login: ENV['ADMIN_LOGIN'], password: ENV['ADMIN_PASSWORD']
