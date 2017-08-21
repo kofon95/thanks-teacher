@@ -37,3 +37,8 @@ $(document).ready ->
     .fail((e) ->
       alert("#{e.status}: #{e.statusText}");
     )
+
+  #######################
+  searchButton = document.getElementById("do_search")
+  document.getElementById("query_input").addEventListener "input", ->
+    searchButton.click()

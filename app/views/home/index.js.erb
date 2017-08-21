@@ -3,24 +3,25 @@
 
 var html = "<%=j render partial: 'thanks/one', collection: @thanks, as: :thank%>";
 var thanksOffset = document.getElementById("thanks_offset");
+var notFound = document.getElementById("not-found");
+
 
 <%if params[:search]%>
-tmpContainer.innerHTML = html;
-document.getElementById("thanks_container_left_block").innerHTML = "";
-document.getElementById("thanks_container_right_block").innerHTML = "";
-moveThanks(0);
-thanksOffset.value = tmpContainer.children.length;
-if (html.length === 0)
-  alert("Ничего не нашлось!")
-<%else%>
-var offset = tmpContainer.children.length;
-tmpContainer.innerHTML += html;
-moveThanks(offset);
-
-if (html.length === 0)
-  alert("Вы дошли до конца списка!");
-else
+  tmpContainer.innerHTML = html;
+  document.getElementById("thanks_container_left_block").innerHTML = "";
+  document.getElementById("thanks_container_right_block").innerHTML = "";
+  moveThanks(0);
   thanksOffset.value = tmpContainer.children.length;
+  notFound.style.display = html.length === 0 ? null : "none";
+<%else%>
+  var offset = tmpContainer.children.length;
+  tmpContainer.innerHTML += html;
+  moveThanks(offset);
+
+  if (html.length !== 0)
+    thanksOffset.value = tmpContainer.children.length;
+  else if (thanksOffset.value !== 0)  // not found
+    alert("Вы дошли до конца списка!");
 <%end%>
 }()
 

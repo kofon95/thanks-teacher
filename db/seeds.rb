@@ -6,11 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-100.times do|i|
-  Thanks.create! visitor_name: Faker::Name.name_with_middle,
-                teacher_name: Faker::Name.name_with_middle,
-                school_name: Faker::Educator.campus,
-                body: Faker::Lorem.paragraphs.join("\n")
-end
+thanks = []
 
-Admin.create! login: ENV['ADMIN_LOGIN'], password: ENV['ADMIN_PASSWORD']
+100.times do|i|
+  thanks << {
+    visitor_name: Faker::Name.name_with_middle,
+    teacher_name: Faker::Name.name_with_middle,
+    school_name: Faker::Educator.campus,
+    body: Faker::Lorem.paragraphs.join("\n") + '_fake_',
+    published: true
+  }
+end
+Thanks.create thanks
+
+if Rails.env.development?
+  Admin.create! login: ENV['ADMIN_LOGIN'], password: ENV['ADMIN_PASSWORD']
+end

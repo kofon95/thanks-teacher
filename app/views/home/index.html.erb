@@ -85,9 +85,9 @@
 
     <%=form_tag thanks_path, method: 'get', remote: true, data: {count: @thanks.count} do%>
       <div class="filtration-block-stories">
-        <input id="thanks_count" type="hidden" name="count" value="5">
-        <input placeholder="Введите ФИО учителя или название учебного заведения (например: СОШ №7 г. Кизилюрт)" class="inp-block-stories" type="text" name="q" id="search_thanks">
-        <button id="do_search" name="search">Искать</button>
+        <input id="thanks_count" type="hidden" name="count" value="<%=HomeController::COUNT_THANKS%>">
+        <input id="query_input" placeholder="Введите ФИО учителя или название учебного заведения (например: СОШ №7 г. Кизилюрт)" class="inp-block-stories" type="text" name="q" id="search_thanks">
+        <button id="do_search" name="search" style="display:none">Искать</button>
         <div class="counter"><div class="text-counter"><span>Спасибо</span> уже сказали <%=@thanks_count%> человек</div></div>
       </div>
       
@@ -101,6 +101,8 @@
           <div id="thanks_container_left_block" class="column-items-block-stories"></div>
           <div id="thanks_container_right_block" class="column-items-block-stories"></div>
         </div>
+        <div id="not-found" style="display: none;font-size: 50px;text-align: center;color: #e8e8e8;">Ксожалению, ничего не найдено</div>
+
 <script>
 "use strict"
 
