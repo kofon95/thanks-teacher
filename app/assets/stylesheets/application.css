@@ -69,7 +69,7 @@
 }
 .min-obr {
     height: 100px;
-    margin: 75px 50px;
+    margin: 75px 50px 45px 50px;
     float: left;
     user-select: none;
 }
@@ -79,11 +79,11 @@
 
 footer {
     width: 100%;
-    height: 250px;
     background-color: rgba(0, 0, 0, 0.39);
     position: relative;
     z-index: 3;
     margin-top: 40px;
+    padding-bottom: 30px;
 }
 
 .name-teacher, .name-school, .name-peaple {
@@ -108,4 +108,16 @@ footer {
 
 .name-teacher:focus, .name-school:focus, .name-peaple:focus, .history-teacher:focus {
     border-color: #3f92d2;
+}
+
+.inp-block-stories, .inp-search {
+    padding: 20px 2%;
+    outline: none;
+    border: 0;
+    border-radius: 2px;
+    width: 96%;
+    font-size: 14px;
+    font-family: verdana;
+    line-height: 1.6em;
+    box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
 }
