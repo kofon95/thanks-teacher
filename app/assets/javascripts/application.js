@@ -14,6 +14,7 @@
 //= require rails-ujs
 // require turbolinks
 //= require cable
+// require angular
 //= require design/home
 //= require home
 // require_tree .

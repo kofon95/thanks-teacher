@@ -30,7 +30,7 @@
     
     </div>
     
-    
+<%#
     <script>
       var schoolName = document.getElementById("school_name");
       var words = document.getElementById("words-container");
@@ -58,7 +58,7 @@
         words.classList.remove("not-found");
       });
     </script>
-    
+%>
     
     <textarea id="thank_body" placeholder="Опишите Вашу историю" name="comment" cols="40" rows="3" class="history-teacher"></textarea>
     
@@ -94,10 +94,10 @@
       <div class="items-block-stories">
         <!-- tmp container -->
         <!-- dynamic style: visibility: hidden;position: absolute; -->
-        <div id="invisibility_thanks_container" >
+        <div id="invisibility_thanks_container" class="one-block-stories" >
           <%=render partial: 'thanks/one', collection: @thanks, as: :thank %>
         </div>
-        <div>
+        <div class="two-blocks-stories">
           <div id="thanks_container_left_block" class="column-items-block-stories"></div>
           <div id="thanks_container_right_block" class="column-items-block-stories"></div>
         </div>
@@ -105,8 +105,6 @@
 "use strict"
 
 var tmpContainer = document.getElementById("invisibility_thanks_container");
-tmpContainer.style.visibility = "hidden";
-tmpContainer.style.position = "absolute";
 
 function moveThanks(fromIndex) {
   var leftBlock = document.getElementById("thanks_container_left_block");

@@ -4,7 +4,8 @@ permitObject = (obj, keys)->
     result[key] = obj[key]
   result
 
-angular.module("main", []).controller("thanksCtrl", ($scope, $http, $httpParamSerializer)->
+
+ThanksCtrl = ($scope, $http, $httpParamSerializer)->
   authToken = document.getElementById("auth_token").value
   authTokenData = $httpParamSerializer({authenticity_token: authToken})
   deleteHeaders = { "Content-Type": "application/x-www-form-urlencoded" }
@@ -21,7 +22,6 @@ angular.module("main", []).controller("thanksCtrl", ($scope, $http, $httpParamSe
 
 
   $scope.loadThanks(5)
-
 
 
 
@@ -58,4 +58,7 @@ angular.module("main", []).controller("thanksCtrl", ($scope, $http, $httpParamSe
     thanks[index].published = published
     if $scope.saveThank(thanks[index])?
       thanks[index].published = published
-)
+
+
+ThanksCtrl.$inject = ["$scope", "$http", "$httpParamSerializer"]
+angular.module("app", []).controller "ThanksCtrl", ThanksCtrl
