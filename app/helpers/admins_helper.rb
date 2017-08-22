@@ -32,5 +32,6 @@ module AdminsHelper
       admin = Admin.find_by_login(login)
       admin.update_column :remember_token, nil if admin
     end
+    @current_admin = nil
   end
 end
