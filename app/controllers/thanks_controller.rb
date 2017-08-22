@@ -53,8 +53,7 @@ class ThanksController < ApplicationController
   def edit
     respond_to do |format|
       format.html do
-        # @thanks = Thanks.all
-        @thanks_count = Thanks.all.count
+        @publications_count = Thanks.union_publications_count
       end
       format.json {render json: {message: 'not implemented'}}
     end

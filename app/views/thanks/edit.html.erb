@@ -4,28 +4,29 @@
   <%#=javascript_include_tag 'angular'%>
   <%=javascript_include_tag 'thanks-admin'%>
 <%end%>
-
+<%provide :ngController, 'ng-controller="ThanksCtrl"'.html_safe%>
 
 <header>
   <a href="/" class="logo"><img src="/assets/logo4.png" /></a>
   
   <ul class="menu">
-    <li><a href="#"><span>Опубликованные </span><span>1120</span></a></li>
-    <li><a href="#" class="activ"><span>На расмотрение </span><span>10</span></a></li>
+    <li><a href="#"><span>Опубликованные </span><span>{{totalPublishedThanks}}</span></a></li>
+    <li><a href="#" class="activ"><span>На расмотрение </span><span>{{totalUnpublishedThanks}}</span></a></li>
   </ul>
 
-    <button class="button-exit" name="exit">Выход</button>
+    <%=link_to 'Выход', admin_path, method: :delete, class: 'button-exit'%>
 </header>
 
 
-<content ng-controller="ThanksCtrl">
+<content>
   <input type="hidden" id="auth_token" value="<%=form_authenticity_token%>">
-  <input type="hidden" id="total_thanks" value="<%=@thanks_count%>">
+  <input type="hidden" id="total_published_thanks" value="<%=@publications_count[:published]%>">
+  <input type="hidden" id="total_unpublished_thanks" value="<%=@publications_count[:unpublished]%>">
   
   <div class="filtration-block-stories">
     <input ng-model="searchText" placeholder="Введите ФИО учителя или название учебного заведения (например: СОШ №7 г. Кизилюрт)" class="inp-search" type="text" name="search" id="inp-search">
       
-    <div class="counter"><div class="text-counter">{{thanks.length}} записей из {{totalThanks}}</div></div>
+    <div class="counter"><div class="text-counter">{{thanks.length}} записей из {{totalPublishedThanks + totalUnpublishedThanks}}</div></div>
   </div>
   
   <div class="items-posts">

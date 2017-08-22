@@ -18,6 +18,10 @@ class AdminsController < ApplicationController
       redirect_to admin_path
     end
   end
+  def sign_out_current
+    sign_out
+    redirect_to signin_path
+  end
 
   private
     def admin_params

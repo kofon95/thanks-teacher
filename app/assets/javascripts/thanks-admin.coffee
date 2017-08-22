@@ -10,7 +10,8 @@ ThanksCtrl = ($scope, $http, $httpParamSerializer)->
   authTokenData = $httpParamSerializer({authenticity_token: authToken})
   deleteHeaders = { "Content-Type": "application/x-www-form-urlencoded" }
 
-  $scope.totalThanks = document.getElementById("total_thanks").value
+  $scope.totalPublishedThanks = Number(document.getElementById("total_published_thanks").value)
+  $scope.totalUnpublishedThanks = Number(document.getElementById("total_unpublished_thanks").value)
 
   thanks = []
   $scope.thanks = thanks
@@ -26,16 +27,20 @@ ThanksCtrl = ($scope, $http, $httpParamSerializer)->
 
 
   $scope.removeThank = (index) ->
-    return if thanks[index].isLoading or !confirm('Вы уверены, что хотите удалить благодарение?')
+    thank = thanks[index]
+    return if thank.isLoading or !confirm('Вы уверены, что хотите удалить благодарение?')
     $http({
-      url: "/thanks/#{thanks[index].id}"
+      url: "/thanks/#{thank.id}"
       method: 'DELETE'
       data: authTokenData
       headers: deleteHeaders
     })
     .then (resp) ->
       thanks.splice(index, 1)
-      $scope.totalThanks--
+      if thank.published
+        $scope.totalPublishedThanks--
+      else
+        $scope.totalUnpublishedThanks--
 
 
   # returns promise
@@ -55,9 +60,16 @@ ThanksCtrl = ($scope, $http, $httpParamSerializer)->
 
 
   $scope.saveThankWithPublish = (index, published) ->
-    thanks[index].published = published
-    if $scope.saveThank(thanks[index])?
-      thanks[index].published = published
+    thank = thanks[index]
+    return null if thank.isLoading
+    thank.published = published
+    saveState = $scope.saveThank(thank)
+    if saveState?
+      saveState.finally ->
+        inc = if published then 1 else -1
+        $scope.totalPublishedThanks += inc
+        $scope.totalUnpublishedThanks -= inc
+
 
 
 ThanksCtrl.$inject = ["$scope", "$http", "$httpParamSerializer"]
