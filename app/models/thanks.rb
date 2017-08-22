@@ -1,5 +1,4 @@
 class Thanks < ApplicationRecord
-  def self.published_thanks
-    Thanks.where(published: true)
-  end
+  scope :published_thanks, -> { where(published: true) }
+  # scope :unpublished_thanks, -> { where(published: false) }
 end
