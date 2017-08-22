@@ -19,7 +19,7 @@ SQL
 
     {
       unpublished: query_result[0][0],
-      publiched:   query_result[1][0]
+      published:   query_result[1][0]
     }
   end
 end

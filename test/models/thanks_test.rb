@@ -33,4 +33,12 @@ class ThanksTest < ActiveSupport::TestCase
     assert_same count+1, Thanks.count
     assert_not t.published
   end
+
+  test 'union_publications_count' do
+    actual = {
+      published: Thanks.where(published: true).count,
+      unpublished: Thanks.where(published: false).count
+    }
+    assert_equal actual, Thanks.union_publications_count
+  end
 end
