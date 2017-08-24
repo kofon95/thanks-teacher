@@ -1,6 +1,7 @@
 module AdminsHelper
   def authenticate_admin(admin)
     admin.update_column :remember_token, Admin.encrypt(SecureRandom.hex)
+    reset_session
     cookies[:login] = admin.login
     cookies[:remember_token] = admin.remember_token
     @current_admin = admin
@@ -32,6 +33,7 @@ module AdminsHelper
       admin = Admin.find_by_login(login)
       admin.update_column :remember_token, nil if admin
     end
+    reset_session
     @current_admin = nil
   end
 end
