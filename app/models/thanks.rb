@@ -6,11 +6,11 @@ class Thanks < ApplicationRecord
   # optimized count of publish and unpubliched
   PUBLICATIONS_COUNT_SQL = <<SQL
 select cnt from (
-  select 0, count(*) cnt from (#{Thanks.where(published: false).to_sql})
+  #{Thanks.where(published: false).select('0, count(*) cnt').to_sql}
   union
-  select 1, count(*) cnt from (#{Thanks.where(published: true).to_sql})
+  #{Thanks.where(published: true).select('1, count(*) cnt').to_sql}
   order by 1
-)
+) _t
 SQL
   private_constant :PUBLICATIONS_COUNT_SQL
 
@@ -18,8 +18,8 @@ SQL
     query_result = ActiveRecord::Base.connection.execute(PUBLICATIONS_COUNT_SQL)
 
     {
-      unpublished: query_result[0][0],
-      published:   query_result[1][0]
+      unpublished: query_result[0]['cnt'],
+      published:   query_result[1]['cnt']
     }
   end
 end
