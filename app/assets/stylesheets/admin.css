@@ -125,3 +125,11 @@ header {
   transform: scale(.99, .99);
   background: gray;
 }
+
+.thanks-images{
+    margin: 10px 20px;
+}
+.thanks-images > *{
+    max-width: 100px;
+    margin-right: 10px;
+}

@@ -1,5 +1,6 @@
 class Thanks < ApplicationRecord
   scope :published_thanks, -> { where(published: true) }
+  after_initialize :set_full_image_path
   # scope :unpublished_thanks, -> { where(published: false) }
 
 
@@ -22,4 +23,11 @@ SQL
       published:   query_result[1]['cnt']
     }
   end
+
+  IMAGES_DIR = 'uploads'
+  IMAGES_PATH = "#{S3_BUCKET.url}/#{IMAGES_DIR}/"
+  private
+    def set_full_image_path
+      images.each { |img| img[0,0] = IMAGES_PATH }
+    end
 end

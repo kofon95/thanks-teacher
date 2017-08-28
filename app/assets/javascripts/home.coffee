@@ -5,6 +5,8 @@ $(document).ready ->
   school  = $("#school_name")
   body    = $("#thank_body")
 
+  imageNames = []
+
   $("#do_thank_teacher").click ->
     errors = []
     if visitor.val().length is 0
@@ -25,6 +27,7 @@ $(document).ready ->
       "thanks[teacher_name]": teacher.val()
       "thanks[school_name]" : school.val()
       "thanks[body]"        : body.val()
+      "thanks[images]"  : imageNames
     }
 
     $.post("/thanks", data, ->
@@ -42,3 +45,29 @@ $(document).ready ->
   searchButton = document.getElementById("do_search")
   document.getElementById("query_input").addEventListener "input", ->
     searchButton.click()
+
+  #######################
+  fileInput = $("#images_attachment")
+  data = fileInput.data("formData")
+  dir = fileInput.data("uploadDir") + '/'
+  fileInput.withDropZone("#dropzone", {
+    done: (filenames)->
+      imageNames = filenames.map (f)-> dir + f
+    url: fileInput.data("url")
+    autoUpload: yes
+    action:
+      name: 'image'
+      rename: (filenameWithoutExt, ext, fileIndex)-> filenameWithoutExt + ".jpg"
+      params:
+        preview: yes
+        convertTo:
+          mimeType: "image/jpeg"
+          maxWidth: 1000
+          maxHeight: 1000
+    formData: (index, blob, filename)->
+      formData = new FormData
+      for i of data
+        formData.set(i, data[i])
+      formData.set('file', blob, filename)
+      return formData
+  })

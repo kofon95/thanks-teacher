@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170819124422) do
+ActiveRecord::Schema.define(version: 20170828035430) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
     t.string "login", limit: 50, null: false
@@ -28,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170819124422) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "published", default: false, null: false
+    t.json "images", null: false
   end
 
 end

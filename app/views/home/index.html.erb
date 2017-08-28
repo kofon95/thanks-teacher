@@ -1,6 +1,7 @@
 <%provide :head do%>
   <%=stylesheet_link_tag 'home'%>
-  <%=javascript_include_tag 'home'%>
+  <%=javascript_include_tag 'home', 'https://cdn.rawgit.com/kofon95/smartuploader/608b195f/jquery.smartuploader.min.js'
+  %>
 <%end%>
 
 
@@ -63,6 +64,11 @@
 %>
     
     <textarea id="thank_body" placeholder="Опишите Вашу историю" name="comment" cols="40" rows="3" class="history-teacher"></textarea>
+    <div id="dropzone" class="drop-zone">
+      <p class="title">Выберите или перетащите сюда изображения</p>
+      <div class="preview-container"></div>
+    </div>
+    <%=file_field_tag :file, data: {url: @s3_direct_post.url, 'form-data' => @s3_direct_post.fields, 'upload-dir' => @s3_dir_name}, id: 'images_attachment', multiple: true, style: 'display: none'%>
     
     <button id="do_thank_teacher" class="button-to-send" name="ok">Отправить</button>
   </div>

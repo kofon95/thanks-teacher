@@ -47,7 +47,7 @@ class ThanksController < ApplicationController
 
   def create
     Thanks.create! thanks_params
-    render plain: '', status: :created
+    render plain: thanks_params, status: :created
   end
 
   def edit
@@ -74,7 +74,7 @@ class ThanksController < ApplicationController
 
   private
     def thanks_params
-      params.require(:thanks).permit :visitor_name, :teacher_name, :school_name, :body
+      params.require(:thanks).permit :visitor_name, :teacher_name, :school_name, :body, images: []
     end
     def should_be_admin
       redirect_to signin_path unless signed_in?

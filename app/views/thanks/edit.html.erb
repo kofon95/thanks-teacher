@@ -40,6 +40,7 @@
       <input placeholder="Учебное заведение (например: СОШ №7 г. Кизилюрт)" class="name-school" type="text" ng-model="thank.school_name">
       
       <textarea placeholder="История" cols="40" rows="3" class="history-teacher" data="elastic" ng-model="thank.body"></textarea>
+      <div class="thanks-images"><img ng-repeat="image in thank.images" ng-src="{{image}}"></div>
         
       <button ng-if="!thank.published" class="button-to-send" ng-click="saveThankWithPublish($index, true)" >Сохранить и опубликовать</button>
       <button ng-if="thank.published" class="button-to-send" ng-click="saveThankWithPublish($index, false)" >Сохранить и убрать с публикации</button>
