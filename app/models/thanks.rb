@@ -24,8 +24,7 @@ SQL
     }
   end
 
-  IMAGES_DIR = 'uploads'
-  IMAGES_PATH = "#{S3_BUCKET.url}/#{IMAGES_DIR}/"
+  IMAGES_PATH = "#{S3_BUCKET.url}/#{ENV['UPLOAD_DIR']}/"
   private
     def set_full_image_path
       images.each { |img| img[0,0] = IMAGES_PATH }

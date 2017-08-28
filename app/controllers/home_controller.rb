@@ -10,7 +10,7 @@ class HomeController < ApplicationController
   def set_s3_direct_post
     @s3_dir_name = SecureRandom.uuid
     @s3_direct_post = S3_BUCKET.presigned_post(
-      key: "#{Thanks.IMAGES_DIR}/#{@s3_dir_name}/${filename}",
+      key: "#{ENV['UPLOAD_DIR']}/#{@s3_dir_name}/${filename}",
       success_action_status: '201', acl: 'public-read'
     )
   end
