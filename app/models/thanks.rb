@@ -1,6 +1,5 @@
 class Thanks < ApplicationRecord
   scope :published_thanks, -> { where(published: true) }
-  after_initialize :set_full_image_path
   # scope :unpublished_thanks, -> { where(published: false) }
 
 
@@ -14,6 +13,7 @@ select cnt from (
 ) _t
 SQL
   private_constant :PUBLICATIONS_COUNT_SQL
+  IMAGES_PATH = "#{S3_BUCKET.url}/#{ENV['UPLOAD_DIR']}/"
 
   def self.union_publications_count
     query_result = ActiveRecord::Base.connection.execute(PUBLICATIONS_COUNT_SQL)
@@ -24,9 +24,8 @@ SQL
     }
   end
 
-  IMAGES_PATH = "#{S3_BUCKET.url}/#{ENV['UPLOAD_DIR']}/"
-  private
-    def set_full_image_path
-      images.each { |img| img[0,0] = IMAGES_PATH }
-    end
+  attribute :image_urls
+  def image_urls
+    @image_urls ||= images.map { |img| IMAGES_PATH + img }
+  end
 end
