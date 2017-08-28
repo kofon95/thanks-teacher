@@ -36,7 +36,6 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'sqlite3'
 end
 
 group :development do
@@ -49,7 +48,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
 end
 
 
@@ -60,3 +58,5 @@ gem 'jquery-rails', '~> 4.2'
 gem 'bcrypt', '~> 3.1'
 gem 'dotenv-rails'
 gem 'angularjs-rails'
+gem 'aws-sdk'
+gem 'pg'
