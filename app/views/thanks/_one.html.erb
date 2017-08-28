@@ -8,5 +8,10 @@
     <div class="from-whom-block-stories">от <%=thank.visitor_name%></div>
     
     <div class="text-block-stories"><%=thank.body%></div>
+    <div class="thanks-images">
+      <%thank.image_urls.each do |src|%>
+        <%=image_tag src%>
+      <%end%>
+    </div>
   </div>
 </div>

@@ -351,3 +351,11 @@ content {
 .wrapper.uploading .progress {
     background-color: #8c8c8c;
 }
+
+.thanks-images{
+    text-align: center;
+}
+.thanks-images > *{
+    max-width: 200px;
+    max-height: 200px;
+}
