@@ -74,7 +74,6 @@
   </div>
 </div>
 
-
 <header>
   <a href="#" class="logo"><img src="/assets/logo4.png" /></a>
   
@@ -96,7 +95,7 @@
         <input id="thanks_count" type="hidden" name="count" value="<%=HomeController::COUNT_THANKS%>">
         <input id="query_input" placeholder="Введите ФИО учителя или название учебного заведения (например: СОШ №7 г. Кизилюрт)" class="inp-block-stories" type="text" name="q" id="search_thanks">
         <button id="do_search" name="search" style="display:none">Искать</button>
-        <div class="counter"><div class="text-counter"><span>Спасибо</span> уже сказали <%=@thanks_count%> человек</div></div>
+        <div class="counter"><div class="text-counter"><%=t(:have_said_thanks_html, count: @thanks_count)%></div></div>
       </div>
       
       <div class="items-block-stories">
