@@ -1,0 +1,7 @@
+<%provide :head do%>
+  <%=stylesheet_link_tag 'home'%>
+  <%=javascript_include_tag 'home', 'https://cdn.rawgit.com/kofon95/smartuploader/608b195f/jquery.smartuploader.min.js'
+  %>
+<%end%>
+<%=render 'shared/social_networks_buttons'%>
+<%=render 'thank', thank: @thank%>

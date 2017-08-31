@@ -1,0 +1,27 @@
+<!-- VK -->
+<script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
+<!-- Put this script tag to the place, where the Share button will be -->
+<script type="text/javascript">
+function vkButton(url) {
+  document.write(VK.Share.button({url: url},{type: "round", text: "Поделиться"}));
+}
+</script>
+
+
+<!-- Twitter -->
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>

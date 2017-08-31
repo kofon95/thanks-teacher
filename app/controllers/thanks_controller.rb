@@ -1,5 +1,5 @@
 class ThanksController < ApplicationController
-  before_action :should_be_admin, except: [:create, :index]
+  before_action :should_be_admin, except: [:create, :index, :show]
 
   def index
     show = params[:show]
@@ -43,6 +43,10 @@ class ThanksController < ApplicationController
         render 'home/index'
       end
     end
+  end
+
+  def show
+    @thank = Thanks.find params[:id]
   end
 
   def create
