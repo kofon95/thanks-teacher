@@ -242,6 +242,11 @@ content {
     visibility: hidden;
     position: absolute;
 }
+/*Twitter buttons*/
+.one-block-stories .twitter-share-button {
+    visibility: hidden !important;
+    position: absolute !important;
+}
 @media (max-width: 800px) {
     .one-block-stories {
         visibility: visible;
@@ -250,6 +255,11 @@ content {
     .two-blocks-stories {
         visibility: hidden;
         position: absolute;
+    }
+    /*Twitter buttons*/
+    .two-blocks-stories .twitter-share-button {
+        visibility: hidden !important;
+        position: absolute !important;
     }
     header {
         margin: 30px auto 0;
