@@ -122,8 +122,12 @@ function moveThanks(fromIndex) {
 
   var tmpChildren = tmpContainer.children;
 
+  var secondBlock = leftBlock.parentNode;
+  secondBlock.style.display = "block";
   var leftHeight = leftBlock.offsetHeight;
   var rightHeight = rightBlock.offsetHeight;
+  secondBlock.style.display = null;
+  // secondBlock.style.display = null;
   for (var i = fromIndex; i < tmpChildren.length; i++) {
     var child = tmpChildren[i];
     var post = child.cloneNode(true);

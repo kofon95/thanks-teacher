@@ -239,31 +239,14 @@ content {
 
 
 .one-block-stories {
-    visibility: hidden;
-    position: absolute;
-}
-/*Twitter buttons*/
-.one-block-stories .twitter-share-button {
-    visibility: hidden !important;
-    position: absolute !important;
+    display: none;
 }
 @media (max-width: 800px) {
     .one-block-stories {
-        visibility: visible;
-        position: static;
+        display: block;
     }
     .two-blocks-stories {
-        visibility: hidden;
-        position: absolute;
-    }
-    /*Twitter buttons*/
-    .one-block-stories .twitter-share-button {
-        visibility: visible !important;
-        position: static !important;
-    }
-    .two-blocks-stories .twitter-share-button {
-        visibility: hidden !important;
-        position: absolute !important;
+        display: none;
     }
     header {
         margin: 30px auto 0;

@@ -1,24 +1,20 @@
 // document.addEventListener("turbolinks:load", function() {
 $(document).ready(function() {
+  var body = $("body");
   $(".button-close-panel").click(function() {
-    $("body").removeClass("open-submit-review-to-teacher");
+    body.removeClass("open-submit-review-to-teacher");
   });
   $(".button-thank-you").click(function() {
-    $("body").addClass("open-submit-review-to-teacher");
+    body.addClass("open-submit-review-to-teacher");
   });
   
-  var accountImg = 1;
+  var accountImg = 0;
+  var slider = $(".slider");
+  var imgs = slider.children("img");
+  var numbImg = imgs.length - 1; // количество изображений
   setInterval(function() {
-    var numbImg = $(".slider>img").length - 1; // количество изображений
-    var imageSize = $(".slider>img").height(); // текущий размер изображения
-    imageSize = imageSize * accountImg;
-    if(numbImg == accountImg) {
-      accountImg = 1;
-      imageSize = 0;
-    }
-    else {
-      accountImg++;
-    }
-    $(".slider").css("top", "-" + imageSize);
+    var imageSize = imgs.height() * accountImg; // текущий размер изображения
+    accountImg = numbImg === accountImg ? 0 : accountImg + 1;
+    slider.css("top", -imageSize + "px");
   }, 10000);
 });
