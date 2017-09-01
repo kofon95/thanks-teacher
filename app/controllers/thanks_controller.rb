@@ -34,12 +34,14 @@ class ThanksController < ApplicationController
       # home search ajax
       format.js do
         @thanks = thanks
-        @thanks_count = Thanks.published_thanks
+        # TODO: remove string below if everythink is ok
+        # @thanks_count = Thanks.published_thanks
         render 'home/index'
       end
       format.html do
+        HomeController.set_s3_direct_post(self)
         @thanks = thanks
-        @thanks_count = Thanks.published_thanks
+        @thanks_count = Thanks.published_thanks.count
         render 'home/index'
       end
     end
