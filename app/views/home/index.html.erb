@@ -128,10 +128,10 @@ function moveThanks(fromIndex) {
     var child = tmpChildren[i];
     var post = child.cloneNode(true);
     if (leftHeight <= rightHeight) {
-      leftBlock.append(post);
+      leftBlock.appendChild(post);
       leftHeight += post.offsetHeight;
     } else {
-      rightBlock.append(post);
+      rightBlock.appendChild(post);
       rightHeight += post.offsetHeight;
     }
   }
