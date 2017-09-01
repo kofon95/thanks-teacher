@@ -34,8 +34,6 @@ class ThanksController < ApplicationController
       # home search ajax
       format.js do
         @thanks = thanks
-        # TODO: remove string below if everythink is ok
-        # @thanks_count = Thanks.published_thanks
         render 'home/index'
       end
       format.html do
