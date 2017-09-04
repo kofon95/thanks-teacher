@@ -1,5 +1,6 @@
 class Thanks < ApplicationRecord
   scope :published_thanks, -> { where(published: true) }
+  before_save :set_empty_images_by_default
   # scope :unpublished_thanks, -> { where(published: false) }
 
 
@@ -27,5 +28,9 @@ SQL
   attribute :image_urls
   def image_urls
     @image_urls ||= images.map { |img| IMAGES_PATH + img }
+  end
+
+  def set_empty_images_by_default
+    self.images = [] if self.images.nil?
   end
 end
