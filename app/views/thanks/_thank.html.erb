@@ -6,11 +6,11 @@
     </div>
     <%="id = #{thank.id}" if Rails.env.development?%>
     <div class="from-whom-block-stories">от <%=thank.visitor_name%></div>
-    
+
     <div class="text-block-stories"><%=thank.body%></div>
     <div class="thanks-images">
       <%thank.image_urls.each do |src|%>
-        <%=image_tag src%>
+          <%=image_tag src%>
       <%end%>
     </div>
   </div>
@@ -19,6 +19,6 @@
     <script>vkButton("<%=shared_url%>")</script>
     <iframe src="https://www.facebook.com/plugins/share_button.php?href=<%=CGI.escape(shared_url)%>&layout=button_count&size=small&mobile_iframe=true&appId=843861579121790&width=105&height=20" width="105" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
     <a class="twitter-share-button"
-      href="https://twitter.com/intent/tweet" data-url="<%=shared_url%>">Tweet</a>
+       href="https://twitter.com/intent/tweet" data-url="<%=shared_url%>">Tweet</a>
   </div>
 </div>

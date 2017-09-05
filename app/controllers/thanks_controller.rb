@@ -46,7 +46,7 @@ class ThanksController < ApplicationController
   end
 
   def show
-    @thank = Thanks.find params[:id]
+    @thank = Thanks.find_by_id params[:id]
   end
 
   def create

@@ -4,4 +4,45 @@
   %>
 <%end%>
 <%=render 'shared/social_networks_buttons'%>
-<%=render 'thank', thank: @thank%>
+
+
+
+<%= render 'shared/header' %>
+<div class="post post-thenks">
+  <div class="panel-post">
+    <a href="http://спасибоучитель05.рф/" class="button-to-main">На главную</a>
+
+    <%if @thank.nil?%>
+        <div class="moder">Данная история отсутствует, возможно она была удалена за нарушения правил публикации!</div>
+    <%else%>
+        <%unless @thank.published%>
+          <div class="moder">История проходит модерацию, <br/> внизу вы можете сделать репост в своих соц. сети</div>
+        <%end%>
+
+        <div class="to-whom-block-stories-post">
+          <div class="teacher-name-post"><%=@thank.teacher_name%></div>
+          <div class="school-name-post"><%=@thank.school_name%></div>
+        </div>
+        <div><%="id = #{@thank.id}" if Rails.env.development?%></div>
+        <div class="name-peaple-post">от <%=@thank.visitor_name%></div>
+        <div class="words-container-post"><%=@thank.body%></div>
+        <div class="img-post">
+          <%@thank.image_urls.each do |src|%>
+              <%=image_tag src%>
+          <%end%>
+        </div>
+        <div class="repost-post">
+          <div class="link-repost-post">
+            <%shared_url = thank_url @thank%>
+            <script>vkButton("<%=shared_url%>")</script>
+            <iframe src="https://www.facebook.com/plugins/share_button.php?href=<%=CGI.escape(shared_url)%>&layout=button_count&size=small&mobile_iframe=true&appId=843861579121790&width=105&height=20" width="68px" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            <a class="twitter-share-button"
+               href="https://twitter.com/intent/tweet" data-url="<%=shared_url%>">Tweet</a>
+          </div>
+        </div>
+    <%end%>
+
+  </div>
+  <div class="background"></div>
+</div>
+<%= render 'shared/slider' %>

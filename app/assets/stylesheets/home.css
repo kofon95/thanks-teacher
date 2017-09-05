@@ -6,6 +6,33 @@ body {
 a {
     text-decoration: none;
 }
+div.post-thenks {
+    opacity: 1;
+    top: 0;
+}
+.link-repost-post > table, .link-repost-post > iframe {
+    float: right;
+    margin-left: 5px;
+}
+a.button-to-main {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: 2px solid #3c3c3c;
+    border-radius: 1px;
+    user-select: none;
+    padding: 1px 7px;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 12px;
+    color: #3c3c3c;
+    margin: 0;
+}
+.button-to-main:hover {
+    background: #3c3c3c;
+    color: white;
+}
+
 .logo {
     float: left;
     user-select: none;
@@ -92,6 +119,7 @@ header {
     border-radius: 2px;
     /*cursor: pointer;*/
     box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
+    cursor: pointer;
 }
 .text-counter>span{
     text-weight: 600;
@@ -133,13 +161,15 @@ content {
     left: 0;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.49);
-    transition: top .3s;
+    transition: .3s;
     overflow: auto;
+    opacity: 0;
 }
-.open-submit-review-to-teacher>.submit-review-to-teacher {
+.open-submit-review-to-teacher>.submit-review-to-teacher, .open-post>.post {
     top: 0;
+    opacity: 1;
 }
-.open-submit-review-to-teacher {
+.open-submit-review-to-teacher, .open-post {
     overflow: hidden;
 }
 .panel-submit-review-to-teacher {
@@ -195,10 +225,18 @@ content {
 .button-to-send:hover {
     background-color: #3270a0;
 }
+.background-home {
+    background-color: rgba(0, 0, 0, 0.45);
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
 .slider {
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: -2;
     top: 0;
     transition: top .6s;
     user-select: none;
@@ -211,6 +249,9 @@ content {
     font-size: 14px;
     font-family: verdana;
     line-height: 1.6em;
+}
+.panel-post > * {
+    margin: 0 30px;
 }
 @media (max-width: 1300px) {
     .block-stories, content, header {
@@ -229,6 +270,7 @@ content {
 @media (max-width: 910px) {
     footer {
         height: auto;
+        padding-top: 20px;
     }
     .min-obr {
         height: 70px;
@@ -302,6 +344,9 @@ content {
         margin: 30px;
         position: static;
     }
+    div.panel-post {
+        width: 90%;
+    }
 }
 
 /*upload file*/
@@ -355,4 +400,200 @@ content {
 .thanks-images > *{
     max-width: 200px;
     max-height: 200px;
+}
+
+
+
+/* страница поста */
+.post {
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    top: 120%;
+    left: 0;
+    position: fixed;
+    background-color: rgba(0,0,0,0.49);
+    transition: .3s;
+    overflow: auto;
+    opacity: 0;
+}
+.panel-post {
+    width: 700px;
+    background-color: white;
+    margin: 9% auto;
+    position: relative;
+    border-radius: 2px;
+    display: table;
+    padding: 30px 0 10px 0;
+    font-size: 14px;
+    font-family: verdana;
+    line-height: 1.6em;
+    box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
+}
+.teacher-name-post, .school-name-post {
+    float: left;
+}
+.school-name-post {
+    color: #b3b3b3;
+    margin-left: 5px;
+}
+.name-peaple-post {
+    margin-bottom: 20px;
+    font-style: italic;
+    float: left;
+    width: 100%;
+}
+.to-whom-block-stories-post {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.img-post {
+    width: inherit;
+}
+.img-post>img {
+    width: 100%;
+}
+.img-post>img {
+    margin-top: 20px;
+}
+.words-container-post {
+    margin-bottom: 10px;
+    line-height: 2em;
+    font-size: 15px;
+}
+.button-close-panel {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: 2px solid #3c3c3c;
+    border-radius: 50%;
+    user-select: none;
+    width: 9px;
+    height: 9px;
+    padding: 7px;
+    cursor: pointer;
+    transition: background-color .3s;
+    margin: 0;
+}
+.button-close-panel>div {
+    background-image: url(close.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    transition: background-color .3s;
+}
+.button-close-panel:hover {
+    background: #3c3c3c;
+}
+.button-close-panel:hover>div {
+    background-image: url(close-white.svg);
+}
+.title-repost-post {
+    float: left;
+    font-size: 12px;
+    margin-top: 4px;
+    cursor: default;
+    user-select: none;
+}
+.link-repost-post {
+    float: right;
+}
+.repost-post {
+    border: 1px solid #dbdbdb;
+    border-width: 1px 0 0 0;
+    display: table;
+    padding-top: 10px;
+    width: inherit;
+}
+.moder {
+    text-align: center;
+    margin: 20px 100px 40px 100px;
+    font-size: 12px;
+}
+
+.thanks-images>* {
+    margin: 10px;
+}
+.drop-zone {
+    transition: .3s;
+}
+.drop-zone:hover {
+    background-color: rgba(0, 135, 247, 0.15);
+}
+/* страница поста */
+
+
+.right-footer {
+    float: right;
+}
+.filtration-block-stories {
+    overflow: hidden;
+}
+.left-footer {
+    float: left;
+}
+.link-osn>* {
+    background-size: 100% 100%;
+    width: 40px;
+    height: 40px;
+    float: left;
+    border-radius: 10px;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: .3s;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+.our-social-networks {
+    display: table;
+    margin-top: 40px;
+}
+.link-osn {
+    display: table;
+    margin-top: 10px;
+}
+.link-osn>*:hover {
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.6);
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+.vk-link-osn {
+    background-image: url(vk.png);
+}
+.face-link-osn {
+    background-image: url(facebook.png);
+}
+.twit-link-osn {
+    background-image: url(twitter.png);
+}
+.rsstud {
+    height: 60px;
+    margin: 0;
+    float: right;
+    margin-top: 50px;
+}
+.rsstud>img {
+    height: 100%;
+}
+.title-osn {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+@media (max-width: 1300px) {
+    .references {
+        width: 100%;
+    }
+    .right-footer {
+        margin-right: 20px;
+    }
+    .left-footer {
+        margin-left: 20px;
+    }
+    footer {
+        padding-bottom: 20px;
+    }
 }

@@ -14,7 +14,8 @@ thanks = []
     teacher_name: Faker::Name.name_with_middle,
     school_name: Faker::Educator.campus,
     body: Faker::Lorem.paragraphs.join("\n") + '_fake_',
-    published: true
+    published: true,
+    images: []
   }
 end
 Thanks.create thanks
