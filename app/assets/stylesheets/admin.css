@@ -68,7 +68,7 @@ header {
 .menu>li {
     float: left;
 }
-.menu>li>a {
+.menu>li>* {
     padding: 10px 20px;
     font-size: 14px;
     color: #4c4c4c;
@@ -76,10 +76,16 @@ header {
     text-decoration: none;
     transition: color .3s;
 }
-.activ {
+.active {
     background-color: white;
     box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
     border-radius: 2px;
+}
+.menu input[type=radio]{
+    display: none;
+}
+.menu label{
+    cursor: pointer;
 }
 
 .text-counter {
@@ -106,7 +112,7 @@ header {
     font-family: verdana;
     line-height: 1.6em;
 }
-.menu>li>a:hover {
+.menu>li>*:hover {
     color: #000000;
 }
 

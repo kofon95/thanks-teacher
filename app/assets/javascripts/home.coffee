@@ -30,12 +30,13 @@ $(document).ready ->
       "thanks[images]"  : imageNames
     }
 
-    $.post("/thanks", data, ->
-      visitor.val("")
-      teacher.val("")
-      school.val("")
-      body.val("")
-      alert("Ваш отзыв принят, благодарим!")
+    $.post("/thanks", data, (linkToNewThank)->
+      # visitor.val("")
+      # teacher.val("")
+      # school.val("")
+      # body.val("")
+      # alert("Ваш отзыв принят, благодарим!")
+      location.href = linkToNewThank
     )
     .fail((e) ->
       alert("#{e.status}: #{e.statusText}");

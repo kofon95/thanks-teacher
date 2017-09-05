@@ -15,6 +15,7 @@ ThanksCtrl = ($scope, $http, $httpParamSerializer)->
 
   thanks = []
   $scope.thanks = thanks
+  $scope.publishing_filter = '' # all
 
   $scope.loadThanks = (count) ->
     $http.get("/thanks.json?offset=#{thanks.length}&count=#{count}&show=all")

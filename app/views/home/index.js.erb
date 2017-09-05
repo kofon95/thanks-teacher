@@ -5,6 +5,7 @@ var html = "<%=j render partial: 'thanks/thank', collection: @thanks, as: :thank
 var thanksOffset = document.getElementById("thanks_offset");
 var notFound = document.getElementById("not-found");
 
+document.getElementById("found_thanks_count").innerHTML = "<%=j t(:have_said_thanks_html, count: @thanks_count)%>";
 
 <%if params[:search]%>
   tmpContainer.innerHTML = html;

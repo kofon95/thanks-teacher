@@ -26,6 +26,7 @@ class ThanksController < ApplicationController
                              lower(school_name) like :q or lower(body) like :q", {q: q})
     end
 
+    thanks_buf_for_calc_count = thanks
     thanks = thanks.order('created_at desc').offset(offset).limit(count).to_a
 
     respond_to do |format|
@@ -34,6 +35,7 @@ class ThanksController < ApplicationController
       # home search ajax
       format.js do
         @thanks = thanks
+        @thanks_count = thanks_buf_for_calc_count.count
         render 'home/index'
       end
       format.html do
@@ -50,8 +52,8 @@ class ThanksController < ApplicationController
   end
 
   def create
-    Thanks.create! thanks_params
-    render plain: thanks_params, status: :created
+    thank = Thanks.create! thanks_params
+    render plain: thank_url(thank), status: :created
   end
 
   def edit

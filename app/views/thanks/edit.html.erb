@@ -10,8 +10,18 @@
   <a href="/" class="logo"><img src="/assets/logo4.png" /></a>
   
   <ul class="menu">
-    <li><a href="#"><span>Опубликованные </span><span>{{totalPublishedThanks}}</span></a></li>
-    <li><a href="#" class="activ"><span>На расмотрение </span><span>{{totalUnpublishedThanks}}</span></a></li>
+    <li>
+      <label for="show_all" ng-class="{active: publishing_filter == ''}"><span>Все({{totalPublishedThanks + totalUnpublishedThanks}})</span></label>
+      <input id="show_all" type="radio" ng-model="publishing_filter" value="">
+    </li>
+    <li>
+      <label for="show_only_published" ng-class="{active: publishing_filter == 'true'}"><span>Опубликованные({{totalPublishedThanks}})</span></label>
+      <input id="show_only_published" type="radio" ng-model="publishing_filter" value="true">
+    </li>
+    <li>
+      <label for="show_only_unpublished" ng-class="{active: publishing_filter == 'false'}"><span>На расмотрение({{totalUnpublishedThanks}})</span></label>
+      <input id="show_only_unpublished" type="radio" ng-model="publishing_filter" value="false">
+    </li>
   </ul>
 
     <%=link_to 'Выход', admin_path, method: :delete, class: 'button-exit'%>
@@ -33,7 +43,7 @@
     <div ng-class="thank.published
                    ? (thank.isLoading ? 'published loading' : 'published')
                    : (thank.isLoading ? 'unpublished loading' : 'unpublished')"
-     class="item-post" ng-repeat="thank in thanks | filter:searchText">
+     class="item-post" ng-repeat="thank in thanks | filter:searchText | filter:{published: publishing_filter}">
     
       <input placeholder="ФИО отправителя" class="name-peaple" type="text" ng-model="thank.visitor_name">
       <input placeholder="ФИО учителя или учителей" class="name-teacher" type="text" ng-model="thank.teacher_name">
