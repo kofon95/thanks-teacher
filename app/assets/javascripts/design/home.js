@@ -12,6 +12,7 @@ $(document).ready(function() {
   $("#closed-post").click(function() {
       body.removeClass("open-post");
   });
+  var postPageLink = document.getElementById("post_page_link");
   var vkButton = document.getElementById("vk_link_repost");
   var facebookButton = document.getElementById("facebook_link_repost");
   var twitterButton = document.getElementById("twitter_link_repost");
@@ -29,6 +30,7 @@ $(document).ready(function() {
       
       var id = activeItemBlockStories.data("postId");
       var link = `${location.href}thanks/${id}`;
+      postPageLink.href = link;
       
       vkButton.innerHTML = VK.Share.button(link, {type: 'round', text: 'Опубликовать'});
 
