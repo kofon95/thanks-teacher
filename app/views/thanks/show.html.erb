@@ -1,7 +1,5 @@
 <%provide :head do%>
   <%=stylesheet_link_tag 'home'%>
-  <%=javascript_include_tag 'home', 'https://cdn.rawgit.com/kofon95/smartuploader/608b195f/jquery.smartuploader.min.js'
-  %>
 <%end%>
 <%=render 'shared/social_networks_buttons'%>
 
@@ -10,7 +8,7 @@
 <%= render 'shared/header' %>
 <div class="post post-thenks">
   <div class="panel-post">
-    <a href="http://спасибоучитель05.рф/" class="button-to-main">На главную</a>
+    <a href="/" class="button-to-main">На главную</a>
 
     <%if @thank.nil?%>
         <div class="moder">Данная история отсутствует, возможно она была удалена за нарушения правил публикации!</div>

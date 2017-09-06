@@ -1,4 +1,4 @@
-<div class="item-block-stories">
+<div class="item-block-stories" data-post-id="<%=thank.id%>">
   <div class="filling-item-block-stories">
     <div class="to-whom-block-stories">
       <span class="teacher-block-stories"><%=thank.teacher_name%></span>
@@ -13,12 +13,5 @@
           <%=image_tag src%>
       <%end%>
     </div>
-  </div>
-  <div style="margin-top: 10px;">
-    <%shared_url = thank_url thank%>
-    <!-- <script>vkButton("<%=shared_url%>")</script>
-    <iframe src="https://www.facebook.com/plugins/share_button.php?href=<%=CGI.escape(shared_url)%>&layout=button_count&size=small&mobile_iframe=true&appId=843861579121790&width=105&height=20" width="105" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-    <a class="twitter-share-button"
-      href="https://twitter.com/intent/tweet" data-url="<%=shared_url%>">Tweet</a> -->
   </div>
 </div>
