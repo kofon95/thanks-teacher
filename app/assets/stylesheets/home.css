@@ -14,6 +14,24 @@ div.post-thenks {
     float: right;
     margin-left: 5px;
 }
+.button-to-post {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    border: 2px solid #3c3c3c;
+    border-radius: 1px;
+    user-select: none;
+    padding: 1px 7px;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 12px;
+    color: #3c3c3c;
+    margin: 0;
+}
+.button-to-post:hover {
+    background-color: #3c3c3c;
+    color: white;
+}
 a.button-to-main {
     position: absolute;
     right: 10px;
@@ -272,11 +290,42 @@ content {
         height: auto;
         padding-top: 20px;
     }
-    .min-obr {
-        height: 70px;
-        margin: 50px auto;
-        float: none;
+    .left-footer {
+        width: 100%;
+        margin: 0;
     }
+    .min-obr {
+        height: auto;
+        margin: 10px auto;
+        float: none;
+        width: 80%;
+        display: table;
+    }
+    .min-obr > img {
+        height: auto;
+        width: 100%;
+    }
+    .right-footer {
+        width: 60%;
+        margin: 0 auto!important;
+        float: none!important;
+        display: table;
+    }
+    .our-social-networks {
+        margin: 40px auto 0 auto;
+    }
+    .rsstud {
+        width: 80%;
+        height: auto!important;
+        margin: 50px auto 30px auto!important;
+        display: table;
+        float: none!important;
+    }
+    .rsstud > img {
+        height: auto!important;
+        width: 100%;
+    }
+
 }
 
 
@@ -284,6 +333,10 @@ content {
     display: none;
 }
 @media (max-width: 800px) {
+
+    .to-whom-block-stories-post {
+        margin-top: 30px;
+    }
     .one-block-stories {
         display: block;
     }

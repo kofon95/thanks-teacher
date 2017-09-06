@@ -132,11 +132,26 @@ header {
   transform: scale(.99, .99);
   background: gray;
 }
-
 .thanks-images{
     margin: 10px 20px;
 }
 .thanks-images > *{
     max-width: 100px;
     margin-right: 10px;
+}
+.rsstud {
+    width: 40%;
+    display: table;
+    margin: 60px auto;
+}
+.rsstud>img {
+    width: 100%;
+}
+.rsstudio {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+footer {
+    padding-bottom: 30px;
 }
