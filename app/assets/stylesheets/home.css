@@ -10,10 +10,24 @@ div.post-thenks {
     opacity: 1;
     top: 0;
 }
+.panel-button-thank-you {
+    width: 100%;
+}
 .link-repost-post > * {
     float: right;
     margin-left: 5px;
     height: 20px;
+}
+.top-button-thank-you .panel-button-thank-you {
+    width: 100%;
+    position: fixed;
+    top: 20px;
+    z-index: 23;
+    left: 0;
+}
+.static-panel {
+    height: 51px;
+    width: 100%;
 }
 .link-repost-post > * >iframe {
     width: 104px;

@@ -56,4 +56,44 @@ $(document).ready(function() {
     accountImg = numbImg === accountImg ? 0 : accountImg + 1;
     slider.css("top", -imageSize + "px");
   }, 10000);
+
+
+    $(window).scroll(function () {
+        s_top = $("html").scrollTop();
+        yes = $(".filtration-block-stories").offset().top;
+        if(s_top > yes){
+            $("html").addClass('top-button-thank-you');
+        }
+        if(s_top < yes){
+            $("html").removeClass('top-button-thank-you');
+        }
+    });
+
+    function flexibleTextarea(){
+        var _txt = document.getElementById('thank_body'); // здесь comment - это идентификатор поля, которое будет растягиваться.
+        var _minRows = 7; // минимальное количество строк (высота поля)
+
+        if (_txt) {
+            // функция расчета строк
+            function setRows() {
+                _txt.rows = _minRows; // минимальное количество строк
+                // цикл проверки вместимости контента
+                do {
+                    if (_txt.clientHeight != _txt.scrollHeight) _txt.rows += 1;
+                } while (_txt.clientHeight < _txt.scrollHeight);
+            }
+            setRows();
+            _txt.rows = _minRows;
+
+            // пересчет строк в зависимости от набранного контента
+            _txt.onkeyup = function(){
+                setRows();
+            }
+        }
+    }
+    if (window.addEventListener)
+        window.addEventListener("load", flexibleTextarea, false);
+    else if (window.attachEvent)
+        window.attachEvent("onload", flexibleTextarea);
+
 });
